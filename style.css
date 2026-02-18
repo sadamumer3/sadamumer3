@@ -1,0 +1,123 @@
+/* =========================================================
+   GLOBAL RESET + BASE
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #030712;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   GLASSMORPHISM SYSTEM
+========================================================= */
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+}
+
+/* Subtle hover lift */
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(13, 255, 0, 0.4);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(13, 255, 0, 0.15);
+}
+
+/* Section titles subtle glow */
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 18px auto 0;
+  background: #0dff00;
+  box-shadow: 0 0 15px #0dff00;
+}
+
+/* Tag styling */
+.tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(13, 255, 0, 0.08);
+  border: 1px solid rgba(13, 255, 0, 0.3);
+  color: #0dff00;
+}
+
+/* =========================================================
+   NEON TORCH EFFECT (Mouse Reactive)
+========================================================= */
+
+#neon-torch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(13, 255, 0, 0.15) 0%,
+    rgba(13, 255, 0, 0.05) 40%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: transform 0.08s linear;
+  mix-blend-mode: screen;
+}
+
+/* =========================================================
+   AI PULSE ANIMATION (Behind Name)
+========================================================= */
+
+.ai-pulse {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(13, 255, 0, 0.15);
+  filter: blur(40px);
+  top: -40px;
+  left: -60px;
+  z-index: 0;
+  animation: pulseRing 3.5s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
