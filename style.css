@@ -121,3 +121,88 @@ body {
     opacity: 0;
   }
 }
+
+/* =========================================================
+   TIMELINE NEON WIRE
+========================================================= */
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 255, 0, 0.1),
+    rgba(13, 255, 0, 0.6),
+    rgba(13, 255, 0, 0.1)
+  );
+  box-shadow: 0 0 20px rgba(13, 255, 0, 0.5);
+  border-radius: 999px;
+}
+
+/* Timeline Items Layout */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-content {
+  padding: 30px;
+  border-radius: 24px;
+}
+
+/* Connector Dots */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0dff00;
+  box-shadow: 0 0 15px #0dff00;
+  z-index: 2;
+}
+
+.timeline-item.left::before {
+  right: -9px;
+}
+
+.timeline-item.right::before {
+  left: -9px;
+}
+
+/* Mobile Timeline */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 0;
+    text-align: left !important;
+  }
+
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item::before {
+    left: 0 !important;
+  }
+}
